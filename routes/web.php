@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\PrevisaoTempoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::controller(PrevisaoTempoController::class)->group(function () {
+    Route::post('/previsoes', 'store');
+    Route::get('/previsoes', 'index');
+    Route::get('/previsoes/{id}', 'show');
 });

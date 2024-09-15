@@ -10,6 +10,8 @@ services:
       - app-network
     working_dir: /var/www/html
     command: ["php-fpm"]
+    entrypoint: |
+      bash -c "docker-php-ext-install pdo pdo_mysql && php-fpm"
 
   web:
     image: nginx
@@ -31,7 +33,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: ampli
-      MYSQL_USER: root
       MYSQL_PASSWORD: rootpassword
     volumes:
       - db_data:/var/lib/mysql

@@ -22,7 +22,13 @@ class PrevisaoTempo extends Model
         'velocidade_vento',
         'umidade',
         'pressao',
-        'condicao_clima'
+        'condicao_clima',
+        'dia',
+        'direcao_vento',
+        'sensacao_termica',
+        'nebulosidade',
+        'visibilidade',
+        'data_horario_local'
     ];
 
     public function rules()
@@ -37,6 +43,11 @@ class PrevisaoTempo extends Model
             'umidade' => 'required|numeric',
             'pressao' => 'required|numeric',
             'condicao_clima' => 'required|numeric',
+            'dia' => 'required|numeric',
+            'direcao_vento' => 'required|string',
+            'sensacao_termica' => 'required|numeric',
+            'nebulosidade' => 'required|numeric',
+            'visibilidade' => 'required|numeric'
         ];
     }
 
@@ -52,6 +63,11 @@ class PrevisaoTempo extends Model
             'umidade' => 'Umidade',
             'pressao' => 'Pressão',
             'condicao_clima' => 'Condição do clima',
+            'dia' => 'É dia?',
+            'direcao_vento' => 'Direção do vento',
+            'sensacao_termica' => 'Sensação térmica',
+            'nebulosidade' => 'Nebulosidade',
+            'visibilidade' => 'Visibilidade'
         ];
     }
 }

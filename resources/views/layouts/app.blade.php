@@ -29,7 +29,11 @@
 
         <!-- Page Content -->
         <main class="bg-custom-purple min-vh-100">
-            @yield('content')
+            <div class="container">
+                <div class="content-box">
+                    @yield('content')
+                </div>
+            </div>
         </main>
         
     </body>

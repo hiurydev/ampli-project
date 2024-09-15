@@ -77,3 +77,24 @@
 .mr-custom-100px {
     margin-right: 100px;
 }
+
+main {
+    padding-top: 10px; 
+}
+
+.content-box {
+    margin: 0 auto;
+    padding: 20px; 
+    background-color: #ffffff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    max-width: 960px !important; 
+}
+
+.mb-custom-12 {
+    margin-bottom: 12px !important;
+}
+
+.mt-custom-15 {
+    margin-top: 15px !important;
+}

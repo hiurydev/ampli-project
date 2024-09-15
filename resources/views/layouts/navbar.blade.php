@@ -17,7 +17,7 @@
       </div>
 
       <!-- Ícone de Sair no canto direito -->
-      <a href="#" class="nav-link fs-5 color-purple-custom mr-custom-100px">
+      <a href="{{ route('home-page') }}" class="nav-link fs-5 color-purple-custom mr-custom-100px">
         <i class="fas fa-sign-out-alt color-purple-custom"></i> Sair
       </a>
     </div>

@@ -5,10 +5,10 @@ use App\Http\Controllers\Api\PrevisaoTempoController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home-page');
 
 Route::get('/inicio', function () {
-    return view('pages.provisoes.home');
+    return view('pages.previsoes.home');
 })->name('inicio');
 
 Route::controller(PrevisaoTempoController::class)->group(function () {

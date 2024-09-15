@@ -1,6 +1,6 @@
 var previsaoData = {};
 
-function onClickSearch() {
+function onClickPesquisar(cidade = null) {
     var cep = $('#cep').val();
 
     if(!cep) return alert('Informe um CEP!');
@@ -122,6 +122,61 @@ function onClickSave() {
             alert('Dados salvos com sucesso!');
         }
     });
+}
+
+function onClickHistoricoBuscas() {
+    var $historicoContent = $('#historico_content');
+
+    if ($historicoContent.hasClass('d-none')) {
+        $historicoContent.removeClass('d-none');
+        carregarHistorico();
+    } else {
+        $historicoContent.addClass('d-none');
+    }
+}
+
+function carregarHistorico() {
+    $.ajax({
+        url: '/historicos/pesquisas',
+        type: 'GET',
+        success: function(res) {
+            var historicoLista = $('#historico_lista');
+            historicoLista.empty();
+
+            if (res.length > 0) {
+                res.forEach(function(cidade) {
+                    historicoLista.append('<li style="cursor: pointer;" class="list-group-item">' + cidade + '</li>');
+                });
+
+                $('#historico_lista li').on('click', function() {
+                    consultarPeloHistorico( $(this).text());
+                });
+            } else {
+                historicoLista.append('<li class="list-group-item">Nenhuma cidade encontrada</li>');
+            }
+        }
+    });
+}
+
+function onClickLimparHistorico() {
+    $.ajax({
+        url: '/historicos/remover',
+        type: 'DELETE',
+        data: {
+            _token: $('meta[name="csrf-token"]').attr('content'),
+        },
+        success: function() {
+            $('#historico_lista').empty().append('<li class="list-group-item">Nenhuma cidade encontrada</li>');
+        }
+    });
+}
+
+function consultarPeloHistorico(cidade) {
+    var $historicoContent = $('#historico_content');
+
+    onClickPesquisar(cidade);
+
+    $historicoContent.addClass('d-none');
 }
 
 $("#cep").mask("00000-000");

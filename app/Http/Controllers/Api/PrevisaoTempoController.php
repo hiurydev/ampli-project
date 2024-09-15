@@ -6,6 +6,7 @@ use App\Models\PrevisaoTempo;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Api\IntegracaoController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class PrevisaoTempoController extends Controller
 {
@@ -51,7 +52,8 @@ class PrevisaoTempoController extends Controller
             );
     }
 
-    public function compararClima ($cidade1, $cidade2) {
+    public function compararClima ($cidade1, $cidade2) 
+    {
         $integracaoController = new IntegracaoController();
 
         $climaCidade1 = $integracaoController->obterClimaPorCidade($cidade1);
@@ -61,5 +63,15 @@ class PrevisaoTempoController extends Controller
             'DataCidade1' => $climaCidade1,
             'DataCidade2' => $climaCidade2,
         ];
+    }
+
+    public function obterHistoricoCache()
+    {
+        return response()->json(Cache::get('cidades_consultadas', []));
+    }
+
+    public function removerHistoricoCache()
+    {
+        Cache::forget('cidades_consultadas');
     }
 }

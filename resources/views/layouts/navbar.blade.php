@@ -11,7 +11,7 @@
       <div class="navbar-nav mx-auto">
         <a class="nav-link fs-5" aria-current="page" href="{{ route('inicio') }}">Início</a>
         <a class="nav-link fs-5" href="{{ route('comparar') }}">Comparar previsões</a>
-        <a class="nav-link fs-5" href="#">Histórico</a>
+        <a class="nav-link fs-5" href="{{ route('salvos') }}">Histórico (Salvos)</a>
       </div>
 
       <a href="{{ route('home-page') }}" class="nav-link fs-5 color-purple-custom mr-custom-100px">

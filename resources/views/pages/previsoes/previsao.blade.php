@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('content')
@@ -17,12 +16,15 @@
       </div>
       <div class="col-md-7">
          <label for="cidade" class="form-label">Cidade</label>
-         <input type="text" class="form-control mb-2" id="cidade" placeholder="Informe a cidade">
+         <input type="text" class="form-control mb-2" id="cidade" placeholder="Informe a cidade" disabled>
       </div>
       <div class="col-md-1 d-flex align-items-end mb-custom-12">
          <div class="d-flex gap-2">
-            <button onClick="onClickSearch()" class="btn btn-outline-dark btn-sm" type="button" id="button-search">
+            <button onClick="onClickPesquisar()" class="btn btn-outline-dark btn-sm" type="button" id="button-search">
                <i class="fas fa-search"></i> 
+            </button>
+            <button onClick="onClickHistoricoBuscas()" class="btn btn-outline-dark btn-sm" type="button" id="button-historico">
+               <i class="fa-solid fa-clock-rotate-left"></i>
             </button>
          </div>
       </div>
@@ -30,6 +32,19 @@
    
    <div id="loading" class="mt-2 d-none d-flex justify-content-center align-items-center" style="z-index: 1000;">
       <img src="{{ asset('images/loading.gif') }}" alt="Carregando..." style="width: 60px; height: 60px; filter: hue-rotate(350deg) saturate(40) brightness(100%);">
+   </div>
+
+   <div class="card bg-light mb-3 mt-4 d-none" id="historico_content">
+      <div class="card-header d-flex justify-content-between align-items-center">
+         <h5>Histórico de Buscas</h5>
+         <button onClick="onClickLimparHistorico()" class="btn btn-outline-danger btn-sm" id="clear-history-button">
+            <i class="fa-solid fa-trash"></i> Limpar Histórico
+         </button>
+      </div>
+      <div class="card-body">
+         <ul id="historico_lista" class="list-group">
+         </ul>
+      </div>
    </div>
 
    <div class="card bg-light mb-3 mt-4 d-none" id="previsao_content">

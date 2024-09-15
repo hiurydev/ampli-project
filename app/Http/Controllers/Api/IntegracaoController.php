@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Enum\CondicaoClima;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Library\Integracao;
+use App\Models\Enum\CondicaoClima;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 
 class IntegracaoController extends Controller
 {
@@ -22,6 +23,13 @@ class IntegracaoController extends Controller
         
         if (isset($consulta->current->weather_code)) {
             $consulta->current->weather_descriptions[0] = CondicaoClima::condicoes($consulta->current->weather_code);
+        }
+
+        $cidades = Cache::get('cidades_consultadas', []);
+
+        if (!in_array($cidade, $cidades)) {
+            $cidades[] = $cidade;
+            Cache::put('cidades_consultadas', $cidades, 60);
         }
 
         return $consulta; 

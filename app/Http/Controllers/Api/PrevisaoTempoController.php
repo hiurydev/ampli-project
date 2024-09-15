@@ -32,6 +32,25 @@ class PrevisaoTempoController extends Controller
         return response()->json($record);
     }
 
+    public function store(Request $request)
+    {
+        $model = new $this->class;
+
+        $validate = validator($request->all(), $model->rules(), [], $model->names());
+
+        if ($validate->fails()) {
+            $messages = $validate->messages();
+
+            return response()->json(['errors' => $messages], 422);
+        }
+
+        return response()
+            ->json(
+                $this->class::create($request->all()),
+                201
+            );
+    }
+
     public function compararClima ($cidade1, $cidade2) {
         $integracaoController = new IntegracaoController();
 

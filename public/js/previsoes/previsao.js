@@ -1,3 +1,5 @@
+var previsaoData = {};
+
 function onClickSearch() {
     var cep = $('#cep').val();
 
@@ -35,6 +37,7 @@ function exibePrevisao(cidade) {
                 local = res.location;
 
             limpaDados();
+            armazenaDados(previsao, local);
 
             $('#previsao_content .card-header h5').text('Localidade: ' + local.name + ", " + local.region + ". " + local.country);
 
@@ -67,6 +70,58 @@ function limpaDados() {
     $('#previsao_content .card-body .col-md-11 p').remove();
     $('#previsao_content .card-body .row .col-md-4 .card-body .card-text').text('');
     $('#feelslike p').remove();
+}
+
+function armazenaDados(previsao, local) {
+    previsaoData = {
+        nome: local.name,
+        cidade: local.name,
+        pais: local.country,
+        regiao: local.region,
+        temperatura: previsao.temperature,
+        descricao_clima: previsao.weather_descriptions[0],
+        icone_clima: previsao.weather_icons[0],
+        velocidade_vento: previsao.wind_speed,
+        umidade: previsao.humidity,
+        pressao: previsao.pressure,
+        condicao_clima: previsao.weather_code,
+        dia: previsao.is_day ?? true ? 1 : 0,
+        direcao_vento: previsao.wind_dir,
+        sensacao_termica: previsao.feelslike,
+        nebulosidade: previsao.cloudcover,
+        visibilidade: previsao.visibility,
+        data_horario_local: moment(local.localtime).format('YYYY-MM-DD')
+    };
+}
+
+function onClickSave() {
+    $.ajax({
+        type: 'POST',
+        url: '/previsoes',
+        data: {
+            _token: $('meta[name="csrf-token"]').attr('content'),
+            nome: previsaoData.nome,
+            cidade: previsaoData.cidade,
+            pais: previsaoData.pais,
+            regiao: previsaoData.regiao,
+            temperatura: previsaoData.temperatura,
+            descricao_clima: previsaoData.descricao_clima,
+            icone_clima: previsaoData.icone_clima,
+            velocidade_vento: previsaoData.velocidade_vento,
+            umidade: previsaoData.umidade,
+            pressao: previsaoData.pressao,
+            condicao_clima: previsaoData.condicao_clima,
+            dia: previsaoData.dia,
+            direcao_vento: previsaoData.direcao_vento,
+            sensacao_termica: previsaoData.sensacao_termica,
+            nebulosidade: previsaoData.nebulosidade,
+            visibilidade: previsaoData.visibilidade,
+            data_horario_local: previsaoData.data_horario_local
+        },
+        success:function(res){
+            alert('Dados salvos com sucesso!');
+        }
+    });
 }
 
 $("#cep").mask("00000-000");

@@ -18,7 +18,7 @@ Route::get('/comparar', function () {
 
 Route::controller(PrevisaoTempoController::class)->group(function () {
     Route::get('/previsoes', 'index');
-    Route::post('/previsoes', 'store');
+    Route::post('/previsoes', 'store')->name('previsoes.store');
     Route::get('/previsoes/{id}', 'show');
     Route::get('/previsoes/comparar/{cidade1}/{cidade2}', 'compararClima');
 });

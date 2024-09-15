@@ -35,8 +35,8 @@
    <div class="card bg-light mb-3 mt-4 d-none" id="previsao_content">
       <div class="card-header d-flex justify-content-between align-items-center">
          <h5></h5>
-         <button onClick="onClickSearch()" class="btn btn-outline-secondary btn-sm" id="reset-button">
-               <i class="fas fa-sync-alt"></i> 
+         <button onClick="onClickSave()" class="btn btn-outline-secondary btn-sm" id="save-button">
+            <i class="fa-solid fa-floppy-disk"></i> Salvar
          </button>
       </div>
       <div class="card-body">
@@ -105,7 +105,6 @@
          </div>
       </div>
    </div>
-
 </div>
 
 <script src="{{ asset('js/previsoes/previsao.js') }}" defer></script>

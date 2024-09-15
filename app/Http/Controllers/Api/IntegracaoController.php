@@ -24,8 +24,17 @@ class IntegracaoController extends Controller
             $consulta->current->weather_descriptions[0] = CondicaoClima::condicoes($consulta->current->weather_code);
         }
 
-        // $this->salvarClima($consulta);
-        
         return $consulta; 
+    }
+
+    public function obterCidadePorCepComparar($cep1, $cep2)
+    {
+        $consultaPrimeiraCidade = (new Integracao)->obterCidadePorCep($cep1);
+        $consultaSegundaCidade = (new Integracao)->obterCidadePorCep($cep2);
+        
+        return [
+            'Cidade1' => $consultaPrimeiraCidade->localidade ?? null,
+            'Cidade2' => $consultaSegundaCidade->localidade ?? null,
+        ];
     }
 }

@@ -32,11 +32,10 @@
       <img src="{{ asset('images/loading.gif') }}" alt="Carregando..." style="width: 60px; height: 60px; filter: hue-rotate(350deg) saturate(40) brightness(100%);">
    </div>
 
-
    <div class="card bg-light mb-3 mt-4 d-none" id="previsao_content">
       <div class="card-header d-flex justify-content-between align-items-center">
          <h5></h5>
-         <button class="btn btn-outline-secondary btn-sm" id="reset-button">
+         <button onClick="onClickSearch()" class="btn btn-outline-secondary btn-sm" id="reset-button">
                <i class="fas fa-sync-alt"></i> 
          </button>
       </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\PrevisaoTempo;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\IntegracaoController;
 use Illuminate\Http\Request;
 
 class PrevisaoTempoController extends Controller
@@ -29,5 +30,17 @@ class PrevisaoTempoController extends Controller
         }
 
         return response()->json($record);
+    }
+
+    public function compararClima ($cidade1, $cidade2) {
+        $integracaoController = new IntegracaoController();
+
+        $climaCidade1 = $integracaoController->obterClimaPorCidade($cidade1);
+        $climaCidade2 = $integracaoController->obterClimaPorCidade($cidade2);
+
+        return [
+            'DataCidade1' => $climaCidade1,
+            'DataCidade2' => $climaCidade2,
+        ];
     }
 }

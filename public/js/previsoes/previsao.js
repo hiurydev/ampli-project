@@ -38,7 +38,7 @@ function exibePrevisao(cidade) {
 
             $('#previsao_content .card-header h5').text('Localidade: ' + local.name + ", " + local.region + ". " + local.country);
 
-            $('#icone_tempo').html('<img src="' + previsao.weather_icons[0] + '" alt="Icone">');
+            $('#icone_tempo').html('<img style="max-width: 63px; !important" src="' + previsao.weather_icons[0] + '" alt="Icone">');
             $('#previsao_content .card-body .col-md-11 h3').text(previsao.temperature + '°C');
             $('#previsao_content .card-body .col-md-11').append('<p>' + previsao.weather_descriptions[0] + '</p>');
 

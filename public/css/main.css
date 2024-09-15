@@ -1,0 +1,79 @@
+.bg-gradient-blue {
+    background: linear-gradient(135deg, #d88fff, #4e13a0);
+    /* color: white; */
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.btn-purple-custom {
+    background-color: #25094c !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+.btn-purple-custom:hover {
+    background-color: #a364fc !important;
+}
+
+.mt-custom-minus-20 {
+    margin-top: -20px !important;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #000;
+    font-size: 24px;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+.social-icons a:hover {
+    color: #a364fc;
+}
+
+.bg-custom-purple {
+    background: linear-gradient(135deg, #d88fff, #4e13a0);
+    /* min-height: 100vh;
+    padding: 20px; */
+}
+
+.color-purple-custom {
+    color: #6610f2 !important;
+}
+
+.mr-custom-100px {
+    margin-right: 100px !important;
+}
+
+.ml-custom-100px {
+    margin-right: 100px !important;
+}
+
+.navbar-custom {
+    background-color: #f8f9fa; 
+}
+
+.nav-link {
+    font-weight: bold; 
+    transition: color 0.3s ease; 
+}
+
+.nav-link.active {
+    color: #6f42c1; 
+    border-bottom: 2px solid #6f42c1;
+}
+
+.main-content {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    background-color: #ffffff; 
+    padding: 20px;
+}
+
+.color-purple-custom {
+    color: #6f42c1;
+}
+
+.mr-custom-100px {
+    margin-right: 100px;
+}

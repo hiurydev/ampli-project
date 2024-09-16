@@ -30,13 +30,13 @@ O projeto consiste em um sistema para consultar e comparar previsões do tempo p
 ## Demonstração:
 
 ### Pagina inicial e consulta da previsão
-![Home Page](public\images\1-home-page.gif)
+![Home Page](https://github.com/hiurydev/ampli-project/blob/desenv/public/images/1-home-page.gif?raw=true)
 
 ### Comparação de climas
-![Comparar](public\images\2-comparar.gif)
+![Comparar](https://github.com/hiurydev/ampli-project/blob/desenv/public/images/2-comparar.gif?raw=true)
 
 ### Históricos salvos
-![Salvos](public\images\3-historico-salvo.gif)
+![Salvos](https://github.com/hiurydev/ampli-project/blob/desenv/public/images/3-historico-salvo.gif?raw=true)
 
 ### Exemplo da responsividade do sistema
-![Salvos](public\images\4-responsividade.gif)
+![Salvos](https://github.com/hiurydev/ampli-project/blob/desenv/public/images/4-responsividade.gif?raw=true)

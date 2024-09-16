@@ -36,6 +36,10 @@ function exibePrevisao(cidade) {
             var previsao = res.current,
                 local = res.location;
 
+            if (res.erro) {
+                return alert('Clima não encontrado!');
+            }
+
             limpaDados();
             armazenaDados(previsao, local);
 
@@ -90,7 +94,7 @@ function armazenaDados(previsao, local) {
         sensacao_termica: previsao.feelslike,
         nebulosidade: previsao.cloudcover,
         visibilidade: previsao.visibility,
-        data_horario_local: moment(local.localtime).format('YYYY-MM-DD')
+        data_horario_local: moment(local.localtime).format('YYYY-MM-DD HH:mm:ss')
     };
 }
 

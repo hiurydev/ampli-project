@@ -17,7 +17,9 @@ class PrevisaoTempoController extends Controller
 
     public function index(Request $request)
     {
-        return $this->class::paginate($request->per_page);
+        $previsoes = $this->class::all(); 
+
+        return view('pages.previsoes-salvas.previsao-salva', ['previsoes' => $previsoes]);
     }
 
     public function show(int $id)
@@ -50,6 +52,18 @@ class PrevisaoTempoController extends Controller
                 $this->class::create($request->all()),
                 201
             );
+    }
+
+    public function destroy($id)
+    {
+        try {
+            $previsao = $this->class::findOrFail($id);
+            $previsao->delete();
+
+            return response()->json(['success' => true, 'message' => 'Previsão removida com sucesso!']);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => 'Erro ao remover a previsão.'], 500);
+        }
     }
 
     public function compararClima ($cidade1, $cidade2) 

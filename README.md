@@ -19,10 +19,13 @@ O projeto consiste em um sistema para consultar e comparar previsões do tempo p
 - Interface intuitiva, com o uso de Bootstrap para proporcionar um layout responsivo.
 
 ## Estrutura do projeto:
-
 - Backend: construído com Laravel (Padrão MVC), é onde a lógica do sistema acontece, e todas as solicitações à API são gerenciadas.
 - Frontend: construído com o Blade do Laravel, juntamente do jQuery, na qual possibilita maior interação com o usuário em tela; Bootstrap: framework utilizado para o layout da página.
 - Docker: servidores de desenvolvimento preparados juntamente com PHP e MySQL. Utilizado pois facilita e muito a vida de quem desenvolve.
+
+## Git
+- Criado branch desenv para o desenvolvimento da aplicação
+- Utilizado padrão de commits por features
 
 ## Demonstração:
 

@@ -29,6 +29,15 @@ O projeto consiste em um sistema para consultar e comparar previsões do tempo p
 - Criado branch desenv para o desenvolvimento da aplicação
 - Utilizado padrão de commits por features
 
+## Links úteis
+- [Página principal do projeto](https://github.com/hiurydev/ampli-project)
+- [Documentação da API WeatherStack](https://weatherstack.com/documentation)
+- [Documentação da API ViaCEP](https://viacep.com.br/)
+
+## Fluxograma (Teste 2)
+
+- [Fluxograma do Elevador](https://github.com/hiurydev/ampli-project/blob/desenv/public/images/fluxograma.jpeg?raw=true)
+
 ## Demonstração:
 
 ### Pagina inicial e consulta da previsão
@@ -42,3 +51,4 @@ O projeto consiste em um sistema para consultar e comparar previsões do tempo p
 
 ### Exemplo da responsividade do sistema
 ![Salvos](https://github.com/hiurydev/ampli-project/blob/desenv/public/images/4-responsividade.gif?raw=true)
+

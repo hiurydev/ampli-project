@@ -14,13 +14,22 @@ $(document).ready(function() {
                 success: function(response) {
                     if (response.success) {
                         $('#previsao-' + id).remove();
-                        alert('Previsão removida com sucesso!');
+                        Messenger().post({
+                            message: 'Previsão removida com sucesso!',
+                            type: 'success',
+                        });
                     } else {
-                        alert('Erro ao remover previsão.');
+                        Messenger().post({
+                            message: 'Erro ao remover previsão.',
+                            type: 'error',
+                        });
                     }
                 },
                 error: function() {
-                    alert('Erro ao remover previsão.');
+                    Messenger().post({
+                        message: 'Erro ao remover previsão.',
+                        type: 'error',
+                    });
                 },
                 complete: function() {
                     $('#loading').addClass('d-none');
@@ -36,8 +45,6 @@ $(document).ready(function() {
             url: '/previsoes/' + id,
             method: 'GET',
             success: function (data) {
-                console.log(data);
-                
                 $('#cidade').text(data.cidade);
                 $('#temperatura').text(data.temperatura + '°C');
                 $('#vento').text(data.velocidade_vento + ' km/h');

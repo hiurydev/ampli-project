@@ -3,7 +3,12 @@ var previsaoData = {};
 function onClickPesquisar(cidade = null) {
     var cep = $('#cep').val();
 
-    if(!cep) return alert('Informe um CEP!');
+    if(!cep) {
+        return Messenger().post({
+            message: 'Informe o CEP!',
+            type: 'error',
+        });
+    };
     
     $('#loading').removeClass('d-none');
     $('#previsao_content').addClass('d-none');
@@ -14,7 +19,10 @@ function onClickPesquisar(cidade = null) {
         success: function (res) {
             if (res.Erros) {
                 $('#loading').addClass('d-none');
-                alert('Cidade não encontrada!');
+                Messenger().post({
+                    message: 'Cidade não encontrada!',
+                    type: 'error',
+                });
                 return;
             }
 
@@ -23,7 +31,10 @@ function onClickPesquisar(cidade = null) {
         },
         error: function () {
             $('#loading').addClass('d-none');
-            alert('Erro ao obter dados da cidade!');
+            Messenger().post({
+                message: 'Erro ao obter dados da cidade!',
+                type: 'error',
+            });
         }
     });
 }
@@ -37,7 +48,10 @@ function exibePrevisao(cidade) {
                 local = res.location;
 
             if (res.erro) {
-                return alert('Clima não encontrado!');
+                return Messenger().post({
+                    message: 'Clima não encontrado!',
+                    type: 'error',
+                });
             }
 
             limpaDados();
@@ -123,7 +137,10 @@ function onClickSave() {
             data_horario_local: previsaoData.data_horario_local
         },
         success:function(res){
-            alert('Dados salvos com sucesso!');
+            Messenger().post({
+                message: 'Previsão salva com sucesso!',
+                type: 'success',
+            });
         }
     });
 }
@@ -171,6 +188,10 @@ function onClickLimparHistorico() {
         },
         success: function() {
             $('#historico_lista').empty().append('<li class="list-group-item">Nenhuma cidade encontrada</li>');
+            Messenger().post({
+                message: 'Históricos removidos com sucesso!',
+                type: 'success',
+            });
         }
     });
 }
